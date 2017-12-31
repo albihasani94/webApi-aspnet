@@ -25,7 +25,8 @@ namespace webApi_aspnet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ToDoContext>(opt => opt.UseInMemoryDatabase("ToDoList"));
+            var connection = Configuration.GetConnectionString("MySqlConnection");
+            services.AddDbContext<ToDoContext>(opt => opt.UseMySql(connection));
             services.AddMvc();
         }
 

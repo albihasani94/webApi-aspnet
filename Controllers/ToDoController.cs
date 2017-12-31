@@ -13,12 +13,6 @@ namespace webApi_aspnet.Controllers
         public ToDoController(ToDoContext context)
         {
             _context = context;
-
-            if (_context.ToDoItems.Count() == 0)
-            {
-                _context.ToDoItems.Add(new ToDoItem { Name = "Item1" });
-                _context.SaveChanges();
-            }
         }
 
         [HttpGet]
